@@ -1,2 +1,81 @@
-# WobbleFX
-Client-side Fabric mod that adds a springy wobble effect to entities when they get hit.
+# Meme Wobble Mod
+
+Client-side Fabric mod for Minecraft 1.21.11 that adds a short "Invincible wobble" style hit reaction to living entities.
+
+## What It Does
+
+When a living entity is hit and enters `hurtTime`, the rendered model gets a brief spring wobble:
+
+- strong initial bend on impact
+- overshoot past neutral
+- 1-2 smaller settling oscillations
+- quick decay back to normal
+
+This is visual only.
+
+It does not:
+
+- change knockback
+- move hitboxes
+- affect damage logic
+- send packets
+- change server behavior
+
+## Supported Behavior
+
+- All `LivingEntity` renders get a root/body wobble.
+- Biped-style models get extra body, head, arm, and leg wobble.
+- Repeated hits retrigger the effect cleanly.
+
+## Build
+
+Use Java 21.
+
+```bash
+JAVA_HOME=/usr/lib/jvm/java-21 ./gradlew build
+```
+
+Built jar:
+
+```text
+build/libs/memewobble-1.0.0.jar
+```
+
+## Test
+
+1. Launch the client with the mod installed.
+2. Spawn a zombie.
+3. Hit it repeatedly.
+4. Verify the wobble retriggers on each hit and settles back to normal quickly.
+
+## Project Layout
+
+```text
+src/main/java/com/kila/memewobble/
+src/main/resources/
+build.gradle
+settings.gradle
+gradle.properties
+gradlew
+gradlew.bat
+gradle/
+```
+
+## Publish Notes
+
+Keep these in the repo:
+
+- `src/`
+- `gradle/`
+- `build.gradle`
+- `settings.gradle`
+- `gradle.properties`
+- `gradlew`
+- `gradlew.bat`
+- `.gitignore`
+- `README.md`
+
+Do not commit generated folders:
+
+- `build/`
+- `.gradle/`
