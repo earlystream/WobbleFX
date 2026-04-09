@@ -3,6 +3,8 @@
   "package": "com.kila.memewobble.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "ArmorStandEntityMixin",
+    "ArmorStandEntityRendererMixin",
     "BipedEntityModelMixin",
     "LivingEntityMixin",
     "LivingEntityRendererMixin",

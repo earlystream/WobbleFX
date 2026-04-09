@@ -1,5 +1,7 @@
 package com.kila.memewobble.mixin;
 
+import com.kila.memewobble.config.WobbleConfig;
+import com.kila.memewobble.config.WobbleConfigManager;
 import com.kila.memewobble.render.WobbleRenderStateAccess;
 import com.kila.memewobble.wobble.WobbleFrame;
 import net.minecraft.client.model.ModelPart;
@@ -52,21 +54,24 @@ public abstract class BipedEntityModelMixin<T extends BipedEntityRenderState> {
 		float pitch = frame.rootPitchDeg();
 		float limbLag = frame.limbWave();
 		float direction = frame.directionSign();
+		WobbleConfig config = WobbleConfigManager.INSTANCE.getConfig();
+		float headScale = config.headCounter / WobbleConfig.DEFAULT_HEAD_COUNTER;
+		float limbScale = config.limbAmount / WobbleConfig.DEFAULT_LIMB_AMOUNT;
 
 		this.body.roll += roll * 0.55F * DEG_TO_RAD;
 		this.body.yaw += yaw * 0.35F * DEG_TO_RAD;
 		this.body.pitch += pitch * 0.25F * DEG_TO_RAD;
 
-		this.head.roll -= roll * 0.28F * DEG_TO_RAD;
-		this.head.yaw -= yaw * 0.18F * DEG_TO_RAD;
-		this.head.pitch += pitch * 0.18F * DEG_TO_RAD;
+		this.head.roll -= roll * 0.28F * headScale * DEG_TO_RAD;
+		this.head.yaw -= yaw * 0.18F * headScale * DEG_TO_RAD;
+		this.head.pitch += pitch * 0.18F * headScale * DEG_TO_RAD;
 
-		this.rightArm.roll += (roll * 0.18F + limbLag * 2.2F * direction) * DEG_TO_RAD;
-		this.leftArm.roll += (roll * 0.14F - limbLag * 1.9F * direction) * DEG_TO_RAD;
-		this.rightArm.yaw += (yaw * 0.10F + limbLag * 1.1F * direction) * DEG_TO_RAD;
-		this.leftArm.yaw += (yaw * 0.08F - limbLag * 1.0F * direction) * DEG_TO_RAD;
+		this.rightArm.roll += (roll * 0.18F * limbScale + limbLag * 2.2F * direction * limbScale) * DEG_TO_RAD;
+		this.leftArm.roll += (roll * 0.14F * limbScale - limbLag * 1.9F * direction * limbScale) * DEG_TO_RAD;
+		this.rightArm.yaw += (yaw * 0.10F * limbScale + limbLag * 1.1F * direction * limbScale) * DEG_TO_RAD;
+		this.leftArm.yaw += (yaw * 0.08F * limbScale - limbLag * 1.0F * direction * limbScale) * DEG_TO_RAD;
 
-		this.rightLeg.roll += (-roll * 0.08F + limbLag * 0.8F * direction) * DEG_TO_RAD;
-		this.leftLeg.roll += (roll * 0.08F - limbLag * 0.8F * direction) * DEG_TO_RAD;
+		this.rightLeg.roll += (-roll * 0.08F * limbScale + limbLag * 0.8F * direction * limbScale) * DEG_TO_RAD;
+		this.leftLeg.roll += (roll * 0.08F * limbScale - limbLag * 0.8F * direction * limbScale) * DEG_TO_RAD;
 	}
 }

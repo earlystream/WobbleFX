@@ -61,3 +61,21 @@ gradlew.bat
 gradle/
 ```
 
+## Publish Notes
+
+Keep these in the repo:
+
+- `src/`
+- `gradle/`
+- `build.gradle`
+- `settings.gradle`
+- `gradle.properties`
+- `gradlew`
+- `gradlew.bat`
+- `.gitignore`
+- `README.md`
+
+Do not commit generated folders:
+
+- `build/`
+- `.gradle/`

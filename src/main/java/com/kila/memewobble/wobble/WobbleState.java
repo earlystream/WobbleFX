@@ -20,10 +20,10 @@ public final class WobbleState {
 		return state;
 	}
 
-	public void restart() {
+	public void restart(float durationTicks, float strength) {
 		this.active = true;
 		this.ageTicks = 0.0F;
-		this.durationTicks = DEFAULT_DURATION_TICKS;
-		this.strength = 1.0F;
+		this.durationTicks = durationTicks;
+		this.strength = strength;
 	}
 }

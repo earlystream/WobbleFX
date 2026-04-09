@@ -2,12 +2,21 @@
   "schemaVersion": 1,
   "id": "memewobble",
   "version": "${version}",
-  "name": "Meme Wobble",
-  "description": "Client-side hit wobble for living entity renders.",
+  "name": "WobbleFX",
+  "description": "Client-side hit wobble for living entity renders with a simple in-game config screen.",
+  "license": "MPL-2.0",
+  "icon": "79551695-glitch-abstract-background-with-distortion-effect-random-wave-black-and-white-monochrome-lines-for-256x256.png",
   "environment": "client",
+  "contact": {
+    "issues": "https://github.com/earlystream/WobbleFX/issues",
+    "sources": "https://github.com/earlystream/WobbleFX"
+  },
   "entrypoints": {
     "client": [
       "com.kila.memewobble.WobbleClient"
+    ],
+    "modmenu": [
+      "com.kila.memewobble.integration.ModMenuIntegration"
     ]
   },
   "mixins": [
@@ -18,5 +27,8 @@
     "minecraft": "~1.21.11",
     "java": ">=21",
     "fabric-api": "*"
+  },
+  "suggests": {
+    "modmenu": "*"
   }
 }
