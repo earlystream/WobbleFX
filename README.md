@@ -1,3 +1,21 @@
+<p align="center">
+  <a href="https://modrinth.com/user/earlystream">
+    <img
+      src="https://cdn.modrinth.com/data/cached_images/2df5ae65196aa7a4a0aef20e208c0005ff06471f.png"
+      alt="Modrinth profile"
+      style="image-rendering: pixelated;"
+    />
+  </a>
+
+  <a href="https://github.com/earlystream">
+    <img
+      src="https://cdn.modrinth.com/data/cached_images/14bb5f6380dbf0e9a0bc20179ef4d9728b0f88d9.png"
+      alt="GitHub profile"
+      style="image-rendering: pixelated;"
+    />
+  </a>
+</p>
+
 # Meme Wobble Mod
 
 Client-side Fabric mod for Minecraft 1.21.11 that adds a short "Invincible wobble" style hit reaction to living entities.
